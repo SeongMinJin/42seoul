@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb/
+    restart: unless-stopped
+    env_file: ./.env
+    volumes:
+      - mariadb_db:/var/lib/mysql
+    networks:
+      - seojin_network
+    expose:
+      - 3306
+
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress/
+    depends_on:
+      - mariadb
+    restart: unless-stopped
+    env_file: ./.env
+    volumes:
+      - wordpress_db:/var/www/html
+    networks:
+      - seojin_network
+    expose:
+      - 9000
+
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx/
+    env_file: ./.env
+    restart: unless-stopped
+    depends_on:
+      - mariadb
+      - wordpress
+    volumes:
+      - wordpress_db:/var/www/html
+    networks:
+      seojin_network:
+        aliases:
+          - seojin.42.fr
+    expose:
+      - 443
+
+networks:
+  seojin_network: {}
+
+volumes:
+  mariadb_db:
+    driver_opts:
+      type: volume
+      o: bind
+      device: /home/seojin/data/mariadb_db/
+  wordpress_db:
+    driver_opts:
+      type: volume
+      o: bind
+      device: /home/seojin/data/wordpress_db/

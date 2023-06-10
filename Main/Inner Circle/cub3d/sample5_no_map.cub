@@ -1,0 +1,6 @@
+F 105, 105, 105
+NO ./north.xpm
+SO ./south.xpm
+C 69, 179, 214
+WE ./west.xpm
+EA ./east.xpm
