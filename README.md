@@ -18,13 +18,13 @@ My codes for 42Seoul projects
 지형 데이터를 파싱해, 등축투영법 (isometric)으로 렌더링 하는 프로그램.
 C언어로 만들었습니다.
 
-
-https://github.com/SeongMinJin/42seoul/assets/73181329/695fd950-6568-4275-bab7-cdb6f09ca266
+![fdf](https://github.com/SeongMinJin/42seoul/assets/73181329/af287c7c-8480-420c-a053-7d5cf64c3ba7)
 
 
 
 
 #### cub3d
+
 맵 데이터를 파싱해, 레이캐스팅으로 3d 렌더링을 하는 프로그램.
 C언어로 만들었습니다.
 
