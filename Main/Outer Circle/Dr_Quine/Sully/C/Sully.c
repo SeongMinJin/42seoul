@@ -1,11 +1,5 @@
 #include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
-#define CODE "#include <stdio.h>%c#include <unistd.h>%c#include <fcntl.h>%c#include <stdlib.h>%c#include <string.h>%c#define CODE %c%s%c%c#define SOURCE %cSully_%d.c%c%c#define EXECUTE %cSully_%d%c%c#define I %d%c#define FT()int main(){ FILE* file = fopen(SOURCE, %cw%c); fprintf(file, CODE, 10, 10, 10, 10, 10, 34, CODE, 34, 10, 34, I - 1, 34, 10, 34, I - 1, 34 , 10, I - 1, 10, 34, 34, 34, 37, 37, 34, 34, 37, 34, 10); fclose(file); if(!I) return 0; char compile[50]; bzero(compile, 50); sprintf(compile, %ccc -Wall -Werror -Wextra %cs -o %cs%c, SOURCE, EXECUTE); system(compile); char cmd[50]; bzero(cmd, 50); sprintf(cmd, %c./%cs%c, EXECUTE); system(cmd); return 0; }%cFT();"
-#define SOURCE "Sully_5.c"
-#define EXECUTE "Sully_5"
-#define I 5
-#define FT()int main(){ FILE* file = fopen(SOURCE, "w"); fprintf(file, CODE, 10, 10, 10, 10, 10, 34, CODE, 34, 10, 34, I - 1, 34, 10, 34, I - 1, 34 , 10, I - 1, 10, 34, 34, 34, 37, 37, 34, 34, 37, 34, 10); fclose(file); if(!I) return 0; char compile[50]; bzero(compile, 50); sprintf(compile, "cc -Wall -Werror -Wextra %s -o %s", SOURCE, EXECUTE); system(compile); char cmd[50]; bzero(cmd, 50); sprintf(cmd, "./%s", EXECUTE); system(cmd); return 0; }
-FT();
+#define S "#include <stdio.h>%c#include <stdlib.h>%c#include <string.h>%c#define S %c%s%c%cint main() { int i = %d; if (i < 1) return 0; if (strcmp(__FILE__, %cSully.c%c)) --i; char source[20], execute[20], compile[100], cmd[20]; bzero(source, 20); bzero(execute, 20); bzero(compile, 100); bzero(cmd, 20); sprintf(source, %cSully_%cd.c%c, i); sprintf(execute, %cSully_%cd%c, i); sprintf(compile, %ccc -Wall -Werror -Wextra %cs -o %cs%c, source, execute); sprintf(cmd, %c./%cs%c, execute); FILE *file = fopen(source, %cw%c); fprintf(file, S, 10, 10, 10, 34, S, 34, 10, i, 34, 34, 34, 37, 34, 34, 37, 34, 34, 37, 37, 34, 34, 37, 34, 34, 34); fclose(file); system(compile); if (i > 0) system(cmd); return 0; }"
+int main() {int i = 5;if (i < 1) return 0;if (strcmp(__FILE__, "Sully.c")) --i;char source[20], execute[20], compile[100], cmd[20];bzero(source, 20);bzero(execute, 20);bzero(compile, 100);bzero(cmd, 20);sprintf(source, "Sully_%d.c", i);sprintf(execute, "Sully_%d", i);sprintf(compile, "cc -Wall -Werror -Wextra %s -o %s", source, execute);sprintf(cmd, "./%s", execute);FILE *file = fopen(source, "w");fprintf(file, S, 10, 10, 10, 34, S, 34, 10, i, 34, 34, 34, 37, 34, 34, 37, 34, 34, 37, 37, 34, 34, 37, 34, 34, 34);fclose(file);system(compile);if (i > 0) system(cmd);return 0;}
