@@ -1,12 +1,14 @@
-NAME = Colleen
-SOURCE = Colleen.c
+NAME = Grace
+SOURCE = Grace.c
 
 all :
 	cc -Wall -Werror -Wextra $(SOURCE) -o $(NAME);
 
 clean :
+	rm -rf Grace_kid.c
 
 fclean :
+	clean
 	rm -rf $(NAME)
 
 re :
