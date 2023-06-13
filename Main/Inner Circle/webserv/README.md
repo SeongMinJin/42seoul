@@ -1,5 +1,12 @@
 # webserv
 webserv
+
+# preview
+
+![webserv](https://github.com/SeongMinJin/42seoul/assets/73181329/73f7b22f-6c8c-4db3-a4c9-a106516370bf)
+
+
+
 # Co-Work Flow
 
 1. 프로젝트에서 이슈 생성
