@@ -13,12 +13,11 @@ const dollar = "%s";
 const s = %s%s%s;
 const main = async () => {
 	
-	let i = %i
-	
+	let i = %i;
+
 	if (i < 1) return;
 
 	if (path.basename(__filename) !== "Sully.js") --i;
-	
 	const myLogger = new Console({
 		stdout: fs.createWriteStream(%s./Sully_%s{i}.js%s),
 	});
