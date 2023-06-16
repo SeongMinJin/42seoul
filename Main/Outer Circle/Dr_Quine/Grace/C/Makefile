@@ -1,7 +1,9 @@
 NAME = Grace
 SOURCE = Grace.c
 
-all :
+all : $(NAME)
+
+$(NAME) :
 	cc -Wall -Werror -Wextra $(SOURCE) -o $(NAME);
 
 clean :

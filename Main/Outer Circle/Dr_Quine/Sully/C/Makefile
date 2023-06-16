@@ -1,8 +1,10 @@
 NAME = Sully
 SOURCE = Sully.c
 
-all :
-	cc -Wall -Werror -Wextra $(SOURCE) -o $(NAME);
+all : $(NAME)
+
+$(NAME) :
+	cc -Wall -Werror -Wextra $(SOURCE) -o $(NAME)
 
 clean :
 	rm -rf Sully_*
