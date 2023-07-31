@@ -6,7 +6,6 @@ all : $(NAME)
 
 $(NAME) : $(OBJECT)
 	ld -lSystem $< -o $@
-	rm -f $(OBJECT)
 
 $(OBJECT) : 
 	nasm -f macho64 $(SOURCE) -o $@
