@@ -14,30 +14,24 @@
 
 static int	ft_nbrlen(int n)
 {
-	size_t	len;
+	size_t	len = n <= 0 ? 1 : 0;
 
-	len = 0;
-	if (n <= 0)
-		len = 1;
 	while (n)
 	{
-		len++;
 		n /= 10;
+		++len;
 	}
 	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*nbr;
-	int		temp_n;
-	int		len;
+	int		temp_n = n;
+	int		len = ft_nbrlen(n);
+	char	*nbr = (char *)malloc((len + 1) * sizeof(char));
 
-	temp_n = n;
-	len = ft_nbrlen(n);
-	nbr = (char *)malloc((len + 1) * sizeof(char));
 	if (nbr == NULL)
-		return (NULL);
+		return NULL;
 	nbr = nbr + len;
 	*nbr = '\0';
 	while (temp_n)

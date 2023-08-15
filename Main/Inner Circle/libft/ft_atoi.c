@@ -20,17 +20,17 @@ int	ft_atoi(const char *s)
 	num = 0;
 	sign = 1;
 	while ((9 <= *s && *s <= 13) || *s == 32)
-		s++;
+		++s;
 	if (*s == '-' || *s == '+')
 	{
 		if (*s == '-')
 			sign *= -1;
-		s++;
+		++s;
 	}
 	while ('0' <= *s && *s <= '9')
 	{
 		num = num * 10 + *s - 48;
-		s++;
+		++s;
 	}
-	return (sign * num);
+	return sign * num;
 }
